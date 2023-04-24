@@ -1,0 +1,10 @@
+<h1>Listando empleados de una BD</h1>
+{{ lista_empleado }}
+
+<ul>
+    {% for emp in  lista_empleado%}
+       <li>{{ emp.nombre}}{{ "  " }}{{emp.apellido}}</li>
+    
+    {% endfor %}
+    
+</ul>
