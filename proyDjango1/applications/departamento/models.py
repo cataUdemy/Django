@@ -4,7 +4,7 @@ from django.db import models
 
 class departamentoDB(models.Model):
     name = models.CharField('Nombre', max_length=50, blank=True) #editable=False -> no podran editarlo desde el navegador
-    short_name = models.CharField('Nombre Corto', max_length=20, unique=True, null=True)
+    short_name = models.CharField('Nombre Corto', max_length=20, unique=True) #, null=True -> si no se ingresa nada, se guarda como null
     anulate = models.BooleanField('Anulado',default=False)
     fecha = models.DateField()
 
