@@ -8,5 +8,11 @@ class departamentoDB(models.Model):
     anulate = models.BooleanField('Anulado',default=False)
     fecha = models.DateField()
 
+    class Meta:
+        verbose_name='Mi departamento'
+        verbose_name_plural='Areas de la empresa'
+        ordering=['-name'] #ordenar por nombre de forma descendente con -
+        unique_together=('name','short_name') #no se puede repetir el nombre y el short_name
+
     def __str__(self):
         return str(self.id)+'-'+self.name+'-'+self.short_name+'-'+str(self.fecha) +'-'+str(self.anulate)
