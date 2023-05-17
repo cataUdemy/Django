@@ -1,5 +1,6 @@
 from django.db import models
 from applications.departamento.models import departamentoDB
+from ckeditor.fields import RichTextField
 
 # Create your models here.
 
@@ -29,6 +30,7 @@ class EmpleadoDB(models.Model):
     departamento = models.ForeignKey(departamentoDB, on_delete=models.CASCADE, default=1)
     #imagen = models.ImageField(upload_to='empleado', blank=True, null=True)
     habilidades = models.ManyToManyField(Habilidades)
+    hoja_vida= RichTextField()
     class Meta:
         verbose_name='Empleado' #Como quiero que se llame en la web
         verbose_name_plural='Empleados de la empresa' #nombre en plural
