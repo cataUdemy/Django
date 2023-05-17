@@ -6,15 +6,19 @@ from applications.empleado.models import EmpleadoDB, Habilidades
 
 admin.site.register(Habilidades)
 
-class EmpleadoAdmin(admin.ModelAdmin): #para mostrar table
+class EmpleadoAdmin(admin.ModelAdmin): #para mostrar tabla de empleados
     list_display = (
         'id',
         'nombre',
         'apellido',
         'departamento',
         'empleo',
+        'full_name', #no existe en empleado, debo crearlo con una fn
     )
 
+    #funcion para full_name
+    def full_name(self, obj): #obj es el objeto que se esta iterando
+        return obj.nombre + ' ' + obj.apellido
     #para que se pueda buscar por nombre y apellido
     search_fields = ('nombre','apellido')
     list_filter = ('departamento','habilidades') #aparece como filtro, la , es pq es una tupla
