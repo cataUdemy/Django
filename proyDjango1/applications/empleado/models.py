@@ -9,6 +9,7 @@ class Habilidades(models.Model):
     class Meta:
         verbose_name='Habilidad' #Como quiero que se llame en la web
         verbose_name_plural='Habilidades de los empleados' #nombre en plural
+        unique_together=('habilidad',) #no se puede repetir el nombre
 
     def __str__(self):
         return str(self.id)+'-'+self.habilidad
