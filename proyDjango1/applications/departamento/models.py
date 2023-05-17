@@ -9,8 +9,8 @@ class departamentoDB(models.Model):
     fecha = models.DateField()
 
     class Meta:
-        verbose_name='Mi departamento'
-        verbose_name_plural='Areas de la empresa'
+        verbose_name='Mi departamento' #Como quiero que se llame en la web
+        verbose_name_plural='Areas de la empresa' #nombre en plural
         ordering=['-name'] #ordenar por nombre de forma descendente con -
         unique_together=('name','short_name') #no se puede repetir el nombre y el short_name
 
